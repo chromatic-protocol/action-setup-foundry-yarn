@@ -18,7 +18,6 @@ inputs:
     default: "true"
   node-auth-token:
     description: 'Optional env.NODE_AUTH_TOKEN value to registry-url'
-    default: ${{ env.NODE_AUTH_TOKEN }}
 
 outputs:
   cache-hit-foundry:
