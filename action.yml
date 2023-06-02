@@ -50,5 +50,5 @@ runs:
       cache: ${{ inputs.cache }}
       registry-url: ${{ inputs.registry-url }}
       scope: ${{ inputs.scope }}
-  - run: ${{ inputs.cache }} install ${{ (inputs.ignore-scripts == 'true') && '--ignore-scripts' || '' }}
+  - run: ${{ inputs.cache }} install ${{ ((inputs.ignore-scripts == 'true') && '--ignore-scripts') || '' }}
     shell: bash
