@@ -1,4 +1,4 @@
-name: setup yarn
+name: setup foundry and yarn
 description: 'checkout setup yarn and foundry'
 
 inputs:
@@ -13,6 +13,9 @@ inputs:
   cache:
     description: 'Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.'
     default: yarn
+  ignore-scripts:
+    description: install with ignore-scripts
+    default: "true"
 
 outputs:
   cache-hit-foundry:
@@ -47,5 +50,5 @@ runs:
       cache: ${{ inputs.cache }}
       registry-url: ${{ inputs.registry-url }}
       scope: ${{ inputs.scope }}
-  - run: yarn install
+  - run: ${{ inputs.cache }} install ${{ (inputs.ignore-scripts == 'true') && '--ignore-scripts' || '' }}
     shell: bash
